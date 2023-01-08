@@ -1,0 +1,9 @@
+Package: lilliana.jinxserver
+Name: Jinx IPC Server
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: A tweak which is shaped like itself and is as broad as it hath breadth
+Maintainer: Lilliana
+Author: Lilliana
+Section: System
+Depends: firmware (>= 12.2), com.muirey03.libmryipc
