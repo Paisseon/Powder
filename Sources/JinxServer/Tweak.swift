@@ -14,16 +14,18 @@ final class JinxServer: NSObject {
     ) -> [String: Any] {
         let domain: CFString = _domain as CFString
         
-        guard let keyList: CFArray = CFPreferencesCopyKeyList(domain, kCFPreferencesCurrentUser, kCFPreferencesAnyHost) else {
-            return [:]
-        }
-        
+        let keyList: CFArray = CFPreferencesCopyKeyList(
+            domain,
+            kCFPreferencesCurrentUser,
+            kCFPreferencesAnyHost
+        ) ?? [] as CFArray
+
         return CFPreferencesCopyMultiple(
             keyList,
             domain,
             kCFPreferencesCurrentUser,
             kCFPreferencesAnyHost
-        ) as NSDictionary as! [String: Any]
+        ) as? [String: Any] ?? [:]
     }
 }
 
